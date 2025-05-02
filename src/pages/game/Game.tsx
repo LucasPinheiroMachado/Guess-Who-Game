@@ -218,7 +218,7 @@ const Game = (): ReactElement => {
     setResultQuestionPlayer(null);
     setPhraseQuestionPlayer('');
     setPointsBot(prev => {
-      const newPoints = prev - (Math.floor(Math.random() * 7) + 1);
+      const newPoints = prev - (Math.floor(Math.random() * 6) + 1);
       return newPoints < 1 ? 1 : newPoints;
     });    
   }
