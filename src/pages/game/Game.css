@@ -223,13 +223,13 @@
 
 @media (max-width: 768px) {
     .question {
-        width: 95%;
+        width: 93%;
     }
     .buttons-question {
-        width: 95vw;
+        width: 93vw;
     }
     .endGameContainer {
-        width: 95%;
+        width: 93%;
     }
 }
 
