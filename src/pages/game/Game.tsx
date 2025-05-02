@@ -13,6 +13,7 @@ const Game = (): ReactElement => {
   const location = useLocation();
   const { players, playersName, selectedPlayerIndex } = location.state as LocationState;
   const [botPlayerIndex, setBotPlayerIndex] = useState<number>(() => Math.floor(Math.random() * 21));
+  setBotPlayerIndex(() => Math.floor(Math.random() * 21));
   const [discardPlayerSelected, setDiscardPlayerSelected] = useState<number | null>(null);
   const [botPlayer, setBotPlayer] = useState<HTMLDivElement | null>(null);
   const [gameInit, setGameInit] = useState<boolean>(false);
@@ -62,9 +63,8 @@ const Game = (): ReactElement => {
 
 
   useEffect(() => {
-    setBotPlayerIndex(() => Math.floor(Math.random() * 21));
     setBotPlayer(document.querySelector(`.character[data-index="${botPlayerIndex}"]`) as HTMLDivElement);
-  }, [])
+  }, []);
 
   useEffect(() => {
     if (discardPlayerSelected !== null) {
