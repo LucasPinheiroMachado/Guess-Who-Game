@@ -13,7 +13,6 @@ const Game = (): ReactElement => {
   const location = useLocation();
   const { players, playersName, selectedPlayerIndex } = location.state as LocationState;
   const [botPlayerIndex, setBotPlayerIndex] = useState<number>(() => Math.floor(Math.random() * 21));
-  setBotPlayerIndex(() => Math.floor(Math.random() * 21));
   const [discardPlayerSelected, setDiscardPlayerSelected] = useState<number | null>(null);
   const [botPlayer, setBotPlayer] = useState<HTMLDivElement | null>(null);
   const [gameInit, setGameInit] = useState<boolean>(false);
@@ -110,6 +109,7 @@ const Game = (): ReactElement => {
       const playerName: string | null | undefined = document.querySelector(`#playerName${selectedPlayerIndex}`)?.textContent;
       setEndGameMessage(`Você perdeu o Bot advinhou que você era: ${playerName}`);
       setEndGame(true);
+      setBotPlayerIndex(() => Math.floor(Math.random() * 21));
     }
   }, [endGameForPlayer, pointsBot])
 
