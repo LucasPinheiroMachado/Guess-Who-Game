@@ -12,7 +12,7 @@ interface LocationState {
 const Game = (): ReactElement => {
   const location = useLocation();
   const { players, playersName, selectedPlayerIndex } = location.state as LocationState;
-  const [botPlayerIndex, setBotPlayerIndex] = useState<number>(() => Math.floor(Math.random() * 21));
+  const botPlayerIndex: number = Math.floor(Math.random() * 21);
   const [discardPlayerSelected, setDiscardPlayerSelected] = useState<number | null>(null);
   const [botPlayer, setBotPlayer] = useState<HTMLDivElement | null>(null);
   const [gameInit, setGameInit] = useState<boolean>(false);
