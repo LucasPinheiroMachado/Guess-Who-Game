@@ -12,7 +12,7 @@ interface LocationState {
 const Game = (): ReactElement => {
   const location = useLocation();
   const { players, playersName, selectedPlayerIndex } = location.state as LocationState;
-  const botPlayerIndex: number = Math.floor(Math.random() * 21);
+  const [botPlayerIndex, setBotPlayerIndex] = useState<number>(() => Math.floor(Math.random() * 21));
   const [discardPlayerSelected, setDiscardPlayerSelected] = useState<number | null>(null);
   const [botPlayer, setBotPlayer] = useState<HTMLDivElement | null>(null);
   const [gameInit, setGameInit] = useState<boolean>(false);
@@ -32,17 +32,17 @@ const Game = (): ReactElement => {
     ['Feminino', 'Verde', 'Adulto', 'Ruivo', null, ['Tiara']],
     ['Masculino', 'Castanho', 'Criança', 'Castanho', null, [null]],
     ['Masculino', 'Ambar', 'Adulto', 'Castanho', 'Bigode', [null]],
-    ['Masculino', 'Castanho', 'Criança', 'Castanho', null, ['Ocúlos']],
+    ['Masculino', 'Castanho', 'Criança', 'Castanho', null, ['Óculos']],
     ['Feminino', 'Verde', 'Adulto', 'Preto', null, ['Fone']],
-    ['Masculino', 'Castanho', 'Adulto', 'Castanho', null, ['Ocúlos', 'Toca']],
-    ['Feminino', 'Castanho', 'Adulto', 'Castanho', null, ['Ocúlos', 'Brinco']],
+    ['Masculino', 'Castanho', 'Adulto', 'Castanho', null, ['Óculos', 'Toca']],
+    ['Feminino', 'Castanho', 'Adulto', 'Castanho', null, ['Óculos', 'Brinco']],
     ['Masculino', 'Azul', 'Adulto', 'Loiro', null, [null]],
     ['Feminino', 'Roxo', 'Adulto', 'Roxo', null, [null]],
-    ['Masculino', 'Castanho', 'Adulto', 'Castanho', 'Barba', ['Ocúlos']],
+    ['Masculino', 'Castanho', 'Adulto', 'Castanho', 'Barba', ['Óculos']],
     ['Masculino', 'Castanho', 'Adulto', 'Preto', 'Barba', ['Boné', 'Brinco']],
     ['Masculino', 'Azul', 'Idoso', 'Branco', null, ['Boné']],
     ['Feminino', 'Castanho', 'Criança', 'Castanho', null, ['Laço de Cabelo']],
-    ['Feminino', 'Castanho', 'Idoso', 'Branco', null, ['Ocúlos', 'Brinco']],
+    ['Feminino', 'Castanho', 'Idoso', 'Branco', null, ['Óculos', 'Brinco']],
     ['Feminino', 'Ambar', 'Adulto', 'Preto', null, ['Brinco']],
     ['Masculino', 'Verde', 'Criança', 'Loiro', null, [null]],
     ['Feminino', 'Castanho', 'Adulto', 'Preto', null, ['Brinco']],
@@ -58,10 +58,11 @@ const Game = (): ReactElement => {
   const [age, setAge] = useState<string[]>(['Criança', 'Adulto', 'Idoso']);
   const [hair, setHair] = useState<string[]>(['Branco', 'Loiro', 'Preto', 'Castanho', 'Ruivo', 'Roxo', 'Careca']);
   const [face, setFace] = useState<string[]>(['Barba', 'Bigode']);
-  const [accessories, setAccessories] = useState<string[]>(['Brinco', 'Ocúlos', 'Boné', 'Toca', 'Fone', 'Laço de Cabelo', 'Tiara']);
+  const [accessories, setAccessories] = useState<string[]>(['Brinco', 'Óculos', 'Boné', 'Toca', 'Fone', 'Laço de Cabelo', 'Tiara']);
 
 
   useEffect(() => {
+    setBotPlayerIndex(() => Math.floor(Math.random() * 21));
     setBotPlayer(document.querySelector(`.character[data-index="${botPlayerIndex}"]`) as HTMLDivElement);
   }, [])
 
