@@ -1,0 +1,270 @@
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.game-container h1 {
+    margin: 0.5rem 0;
+    color: #f2f2f2;
+    text-shadow: 2px 2px 8px #00000070;
+}
+
+.characters-container {
+    width: 100vw;
+    padding: 0 2.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-manager {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+    padding: 0 2.5vw;
+}
+
+.buttons-game button {
+    width: 90px;
+    height: 45px;
+    border-radius: 10px;
+    color: #f0f4ff;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.buttons-game button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+#btn-init {
+    background: linear-gradient(to right, #4caf50, #388e3c);
+    border: 1px solid #2c6d2f;
+}
+
+#btn-back {
+    margin-left: 8px;
+    background: linear-gradient(to right, #e53935, #c62828);
+    border: 1px solid #b71c1c;
+}
+
+.oponent-stats-text {
+    background-color: #1e2a34;
+    border: 2px solid #4a90e2;
+    border-radius: 12px;
+    padding: 12px;
+    height: 100%;
+    color: #f0f4ff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin: 10px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+#link-back {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.discarded {
+    opacity: 0.4;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+}
+
+.discarded::after {
+    content: "❌";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: red;
+}
+  
+.questions {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.question {
+    background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+    width: 40%;
+    height: 70%;
+    border: 2px solid black;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.buttons-question {
+    width: 40vw;
+    padding: 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+    justify-content: center;
+    gap: 10px;
+}
+
+.buttons-question button {
+    width: 100%;
+    height: 40px;
+    background-color: aquamarine;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn-question-back {
+    width: 33%;
+    height: 40px;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.resultQuestion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding: 0 10%;
+}
+
+.resultQuestion p {
+    text-shadow: 
+      -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000;
+    color: white; 
+    font-size: 20px;
+    text-align: center;
+}
+
+.resultQuestion button {
+    width: auto;
+    padding: 10px 40px;
+    cursor: pointer;
+}
+
+.endGame {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.endGameContainer {
+    background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+    width: 40%;
+    height: 70%;
+    border: 2px solid black;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 20px;
+}
+
+.endGameContainer h1 {
+    font-size: 38px;
+    text-align: center;
+}
+
+@media (max-width: 1000px) {
+    .question {
+        width: 80%;
+        height: 50%;
+    }
+
+    .buttons-question {
+        width: 80vw;
+    }
+    .endGameContainer {
+        width: 80%;
+        height: 50%;
+    }
+    .endGameContainer h1 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .question {
+        width: 95%;
+    }
+    .buttons-question {
+        width: 95vw;
+    }
+    .endGameContainer {
+        width: 95%;
+    }
+}
+
+@media (max-width: 550px) {
+    .game-manager {
+        width: 100vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .buttons-game {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #btn-back {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+
+    .oponent-stats-text {
+        background-color: #1e2a34;
+        border: 2px solid #4a90e2;
+        border-radius: 12px;
+        padding: 12px;
+        height: 100%;
+        color: #f0f4ff;
+        font-size: 1.4rem;
+        font-weight: 600;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: inline-block;
+        margin: 10px auto;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+    }
+      
+}

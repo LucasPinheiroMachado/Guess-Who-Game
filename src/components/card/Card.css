@@ -1,0 +1,59 @@
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12%, 1fr)); /* Desktop */
+  gap: 1rem;
+  padding: 0.5rem 0;
+  justify-content: center;
+  width: 95vw;
+}
+
+.character {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.character:hover {
+  transform: scale(1.05);
+}
+
+.character img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.text-card {
+  text-align: center;
+  padding: 0.5rem;
+  color: #333;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* Tablet e celular: 3 cards por linha fixos */
+@media (max-width: 1024px) {
+  .card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .text-card {
+    font-size: 0.75rem;
+    padding: 0.3rem;
+  }
+}
